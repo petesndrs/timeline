@@ -1,0 +1,44 @@
+{
+  "people" :
+   [
+    {
+     "name" : "John Dalton",
+     "born" : 1766,
+     "died" : 1844,
+	 "fields" : 
+		[
+		 {
+		 "field" : "gases" 
+		 },
+		 {
+		 "field" : "atomic physics"
+		 }
+		 ]
+    },
+    {
+     "name" : "Humphry Davy",
+     "born" : 1778,
+	 "died" : 1829,
+     "fields" : 
+		[
+		 {
+		 "field" : "elements"
+		 }
+		]
+    },
+    {
+     "name" : "Michael Faraday",
+     "born" : 1791,
+     "died" : 1867,
+     "fields" : 
+		[
+		 {
+		 "field" : "electricity and magnetism"
+		 }
+		]
+    }
+   ],
+   "events" :
+   [
+   ]
+}
