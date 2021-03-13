@@ -13,7 +13,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 var ctx = document.getElementById('myCanvas').getContext('2d');
 ctx.fillText("hello " + window.location.href, 20, 10);
 
-window.fetch('file:///C:/users/Pete/github/timeline/docs/timeline.json').then(function(response) {
+window.fetch('./timeline.json').then(function(response) {
   console.log(response.status)
   return response.json();
 }).then(function(data) {
