@@ -6,21 +6,91 @@
 
 <strong>Canvas</strong><br>
 
-<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
+<div style='overflow:auto'>
+<canvas id="myCanvas" width="2000" height="2000" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
+</div>
 
 <script>
-var ctx = document.getElementById('myCanvas').getContext('2d');
-ctx.fillText("hello " + window.location.href, 20, 10);
 
-window.fetch('./timeline.json').then(function(response) {
+'use strict';
+
+var canvas = document.getElementById('myCanvas');
+
+var elemLeft = canvas.offsetLeft + canvas.clientLeft;
+var elemTop = canvas.offsetTop + canvas.clientTop;
+	
+var ctx = document.getElementById('myCanvas').getContext('2d');
+
+// Add event listener for `click` events.
+canvas.addEventListener('click', function(event) {
+    var x = event.pageX - elemLeft;
+    var y = event.pageY - elemTop;
+	ctx.fillText("a",x,y);
+	});
+
+function yearToYPixel(year) {
+  return 5 + (i * (2000-10) / 100);
+}
+
+ctx.beginPath();
+ctx.lineWidth = "3";
+ctx.strokeStyle = "red";
+ctx.moveTo(5, 5);
+ctx.lineTo(5, 1995);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.linewidth = "3";
+ctx.strokeStyle = "red";
+ctx.moveTo(5,5);
+ctx.lineTo(15,5);
+var i;
+for (i = 0; i <= 100; i++) {
+  ctx.moveTo(5, yearToYPixel(i));
+  ctx.lineTo(15, yearToYPixel(i));
+  ctx.fillText(1800+i, 20 ,yearToYPixel(i) + (ctx.measureText('M').width/2));
+}
+ctx.stroke();
+	
+	
+
+var url = "";
+if (window.location.href.startsWith("file:"))
+{
+  console.log("Local HTML");
+  url = "https://petesndrs.github.io/timeline/timeline.json";
+}
+else
+{
+  console.log("Server HTML");
+  url = "./timeline.json"
+}
+
+
+function fetchData() {
+  return window.fetch(url).then(function(response) {
   console.log(response.status)
   return response.json();
 }).then(function(data) {
   console.log(data);
-}).catch(function() {
-  console.log("Booo");
+  console.log("Fetch Done");
+  return data;
+}).catch(function(err) {
+  console.log("Caught: " + err);
 });
+}
+
+function doData(data) {
+  var i;
+  for (i in data.people) {
+    console.log("> " + data.people[i].name);
+  }
+  console.log("Data Done");
+}
+
+var d = fetchData();
+d.then(function(data){doData(data)});
 
 
 </script>
