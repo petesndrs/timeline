@@ -17,43 +17,48 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 var canvas = document.getElementById('myCanvas');
 
-var elemLeft = canvas.offsetLeft + canvas.clientLeft;
-var elemTop = canvas.offsetTop + canvas.clientTop;
-	
-var ctx = document.getElementById('myCanvas').getContext('2d');
+var canvasHeight = canvas.height;
+var canvasWidth = canvas.width;
+console.log("Canvas: " + canvasHeight + "x" + canvasHeight); 
 
-// Add event listener for `click` events.
+var ctx = canvas.getContext('2d');
+
 canvas.addEventListener('click', function(event) {
+    var elemLeft = canvas.offsetLeft + canvas.clientLeft;
+    var elemTop = canvas.offsetTop + canvas.clientTop;
     var x = event.pageX - elemLeft;
     var y = event.pageY - elemTop;
 	ctx.fillText("a",x,y);
 	});
 
-function yearToYPixel(year) {
-  return 5 + (i * (2000-10) / 100);
+var startYear = 1800;
+var endYear = 1900;
+var timelineXMargin = 5;
+var timelineYMargin = 5;
+var tickLength = 10;
+
+function yearToYPixel(year, numYears) {
+  return timelineYMargin + (year * (canvasHeight-(2*timelineYMargin)) / numYears);
 }
 
 ctx.beginPath();
 ctx.lineWidth = "3";
 ctx.strokeStyle = "red";
-ctx.moveTo(5, 5);
-ctx.lineTo(5, 1995);
+ctx.moveTo(timelineXMargin, timelineYMargin);
+ctx.lineTo(timelineXMargin, canvasHeight - timelineYMargin);
 ctx.stroke();
 
 ctx.beginPath();
 ctx.linewidth = "3";
 ctx.strokeStyle = "red";
-ctx.moveTo(5,5);
-ctx.lineTo(15,5);
 var i;
-for (i = 0; i <= 100; i++) {
-  ctx.moveTo(5, yearToYPixel(i));
-  ctx.lineTo(15, yearToYPixel(i));
-  ctx.fillText(1800+i, 20 ,yearToYPixel(i) + (ctx.measureText('M').width/2));
+for (i = 0; i <= (endYear - startYear); i++) {
+  ctx.moveTo(timelineXMargin, yearToYPixel(i, endYear - startYear));
+  ctx.lineTo(timelineXMargin + tickLength, yearToYPixel(i, endYear - startYear));
+  ctx.fillText(startYear+i, timelineXMargin + tickLength + 2 ,yearToYPixel(i, endYear - startYear) + (ctx.measureText('M').width/2));
 }
 ctx.stroke();
-	
-	
+
 
 var url = "";
 if (window.location.href.startsWith("file:"))
