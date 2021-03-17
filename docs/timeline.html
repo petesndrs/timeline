@@ -4,8 +4,13 @@
 
 <h1> title </h1>
 
-<strong>Clickable timeline</strong><br>
+<strong>Select topic</strong><br>
 
+<select name="cars" id="select">
+  <option value="all">All</option>
+</select><br>
+
+<strong>Clickable timeline</strong><br>
 <div style='overflow:auto'>
 <canvas id="myCanvas" width="2000" height="2000" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
@@ -42,6 +47,9 @@ var timelineYMargin = 5;
 var tickLength = 10;
 var tickYearGap = 2;
 var textHeight = ctx.measureText('M').width;
+var lifeEndRadius = 10;
+var lifeWidth = 2;
+var lifeSeparation = (2 * lifeEndRadius) + lifeWidth;
 
 
 function yearToYPixel(year, numYears) {
@@ -103,16 +111,32 @@ function fetchData() {
 }
 
 function doData(data) {
+  var select = document.getElementById('select');
+  var index = 1;
+  var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
   var i;
   for (i in data.people) {
-    console.log("> " + data.people[i].name);
+    console.log("> " + data.people[i].name + " " + data.people[i].born + " " + data.people[i].died);
+    ctx.beginPath();
+    ctx.lineWidth = lifeWidth;
+    ctx.strokeStyle = "blue";
+    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].born - startYear, endYear - startYear), lifeEndRadius, Math.PI/2, 5 * Math.PI/2, false);
+    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].died - startYear, endYear - startYear), lifeEndRadius, 3 * Math.PI/2, 7 * Math.PI/2, false);
+    //ctx.arc(50, yearToYPixel( 1820 - startYear, endYear - startYear), 10, Math.PI/2, 5 * Math.PI/2, false);
+    //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
+    ctx.stroke();
+
+    var opt = document.createElement("option");
+    opt.value= index;
+    opt.innerHTML = data.people[i].name;
+    select.appendChild(opt);
+    index++;
   }
   console.log("Data Done");
 }
 
 var d = fetchData();
 d.then(function(data){doData(data)});
-
 
 </script>
 
