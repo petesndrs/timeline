@@ -4,7 +4,7 @@
 
 <h1> title </h1>
 
-<strong>Canvas</strong><br>
+<strong>Clickable timeline</strong><br>
 
 <div style='overflow:auto'>
 <canvas id="myCanvas" width="2000" height="2000" style="border:1px solid #d3d3d3;">
@@ -28,17 +28,28 @@ canvas.addEventListener('click', function(event) {
     var elemTop = canvas.offsetTop + canvas.clientTop;
     var x = event.pageX - elemLeft;
     var y = event.pageY - elemTop;
-	ctx.fillText("a",x,y);
+	ctx.fillText(yPixelToYear(y, 100),x,y);
 	});
 
+
+// time span
 var startYear = 1800;
 var endYear = 1900;
+
+// timeline formating parameters
 var timelineXMargin = 5;
 var timelineYMargin = 5;
 var tickLength = 10;
+var tickYearGap = 2;
+var textHeight = ctx.measureText('M').width;
+
 
 function yearToYPixel(year, numYears) {
   return timelineYMargin + (year * (canvasHeight-(2*timelineYMargin)) / numYears);
+}
+
+function yPixelToYear(y, numYears) {
+  return Math.round((numYears * (y - timelineYMargin))/(canvasHeight-(2*timelineYMargin)));
 }
 
 ctx.beginPath();
@@ -52,13 +63,18 @@ ctx.beginPath();
 ctx.linewidth = "3";
 ctx.strokeStyle = "red";
 var i;
+var yearWidth = 0;
 for (i = 0; i <= (endYear - startYear); i++) {
   ctx.moveTo(timelineXMargin, yearToYPixel(i, endYear - startYear));
   ctx.lineTo(timelineXMargin + tickLength, yearToYPixel(i, endYear - startYear));
-  ctx.fillText(startYear+i, timelineXMargin + tickLength + 2 ,yearToYPixel(i, endYear - startYear) + (ctx.measureText('M').width/2));
+  ctx.fillText(startYear+i, timelineXMargin + tickLength + tickYearGap, yearToYPixel(i, endYear - startYear) + (textHeight/2) );
+  if (ctx.measureText(startYear+i).width > yearWidth) {
+    yearWidth = ctx.measureText(startYear+i).width;
+  }
 }
 ctx.stroke();
 
+console.log("Year Width = "+yearWidth);
 
 var url = "";
 if (window.location.href.startsWith("file:"))
