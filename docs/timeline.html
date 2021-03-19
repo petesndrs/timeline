@@ -126,8 +126,9 @@ function fetchData() {
 
 function doData(data) {
   var select = document.getElementById('select');
-  var index = 1;
   var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+
+  const mySet1 = new Set();
   var i;
   for (i in data.people) {
     console.log("> " + data.people[i].name + " " + data.people[i].born + " " + data.people[i].died);
@@ -140,12 +141,26 @@ function doData(data) {
     //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
     ctx.stroke();
 
+    var j;
+    for (j in data.people[i].fields) {
+       console.log("= " + data.people[i].fields[j].field);
+       mySet1.add(data.people[i].fields[j].field);
+    }
+
+  }
+
+  console.log(mySet1);
+
+  var index = 1;
+  mySet1.forEach(function(value,key,set) {
+    console.log(value);
     var opt = document.createElement("option");
     opt.value= index;
-    opt.innerHTML = data.people[i].name;
+    opt.innerHTML = value;
     select.appendChild(opt);
     index++;
-  }
+  });
+
   console.log("Data Done");
 }
 
