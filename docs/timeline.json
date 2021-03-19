@@ -5,7 +5,7 @@
      "name" : "John Dalton",
      "born" : 1766,
      "died" : 1844,
-	 "fields" : 
+     "fields" : 
 		[
 		 {
 		 "field" : "gases" 
@@ -18,7 +18,7 @@
     {
      "name" : "Humphry Davy",
      "born" : 1778,
-	 "died" : 1829,
+     "died" : 1829,
      "fields" : 
 		[
 		 {
@@ -36,6 +36,86 @@
 		 "field" : "electricity and magnetism"
 		 }
 		]
+    },
+    {
+     "name" : "George Airy",
+     "born" : 1801,
+     "died" : 1892,
+     "fields" :
+                [
+                 {
+                 "field" : "astronomy"
+                 }
+                ]
+    },
+    {
+     "name" : "George Boole",
+     "born" : 1815,
+     "died" : 1864,
+     "fields" :
+                [
+                 {
+                 "field" : "mathematics"
+                 }
+                ]
+    },
+    {
+     "name" : "Arthur Cayley",
+     "born" : 1821,
+     "died" : 1895,
+     "fields" :
+                [
+                 {
+                 "field" : "mathematics"
+                 }
+                ]
+    },
+    {
+     "name" : "Edward Frankland",
+     "born" : 1825,
+     "died" : 1899,
+     "fields" :
+                [
+                 {
+                 "field" : "chemistry"
+                 }
+                ]
+    },
+    {
+     "name" : "James Joule",
+     "born" : 1818,
+     "died" : 1889,
+     "fields" :
+                [
+                 {
+                 "field" : "heat and energy"
+                 }
+                ]
+    },
+    {
+     "name" : "Lyon Playfair",
+     "born" : 1819,
+     "died" : 1898,
+     "fields" :
+                [
+                 {
+                 "field" : "chemistry"
+                 },
+                 {
+                 "field" : "communication"
+                 }
+                ]
+    },
+    {
+     "name" : "George Stokes",
+     "born" : 1819,
+     "died" : 1903,
+     "fields" :
+                [
+                 {
+                 "field" : "light and energy"
+                 }
+                ]
     }
    ],
    "events" :
