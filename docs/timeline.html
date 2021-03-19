@@ -6,7 +6,7 @@
 
 <strong>Select topic</strong><br>
 
-<select name="cars" id="select">
+<select name="cars" id="select" onChange="handledropdown(this)">
   <option value="all">All</option>
 </select><br>
 
@@ -50,6 +50,10 @@ canvas.addEventListener('click', function(event) {
     ctx2.fillText(yPixelToYear(y,100), 0, 15);
 });
 
+function handledropdown(e) {
+  console.log("changed");
+  console.log(globalData.people[0].name);
+}
 
 // time span
 var startYear = 1800;
@@ -124,9 +128,13 @@ function fetchData() {
 });
 }
 
+var globalData;
+
 function doData(data) {
   var select = document.getElementById('select');
   var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+
+  globalData = data;
 
   const mySet1 = new Set();
   var i;
