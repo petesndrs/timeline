@@ -11,10 +11,12 @@
 </select><br>
 
 <strong>Clickable timeline</strong><br>
-<div style='overflow:auto'>
-<canvas id="myCanvas" width="2000" height="2000" style="border:1px solid #d3d3d3;">
+<div id="canvasdiv" style="position: relative;">
+<canvas id="myCanvas" width="2000" height="2000" style="position: absolute; left: 0px; top: 0px; z-index: 0; border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="toplayer" width="20" height="30" style="position: absolute; left: 10px; top: 10px; z-index: 1; border:0px;"></canvas>
 </div>
+
 
 <script>
 
@@ -29,12 +31,24 @@ console.log("Canvas: " + canvasHeight + "x" + canvasHeight);
 var ctx = canvas.getContext('2d');
 
 canvas.addEventListener('click', function(event) {
-    var elemLeft = canvas.offsetLeft + canvas.clientLeft;
-    var elemTop = canvas.offsetTop + canvas.clientTop;
-    var x = event.pageX - elemLeft;
-    var y = event.pageY - elemTop;
-	ctx.fillText(yPixelToYear(y, 100),x,y);
-	});
+    var canvasdiv =  document.getElementById('canvasdiv');
+    //console.log(canvasdiv.offsetLeft + ";" + canvasdiv.offsetTop);
+    //console.log(canvas.clientLeft + "!" + canvas.clientTop);
+    //console.log(canvas.offsetLeft + "|" + canvas.offsetTop);
+    //console.log(event.pageX + ":" + event.pageY);
+    var x = event.pageX - canvas.clientLeft - canvasdiv.offsetLeft;
+    var y = event.pageY - canvas.clientTop - canvasdiv.offsetTop;
+    //ctx.fillText(yPixelToYear(y, 100),x,y);
+    var c2 = document.getElementById('toplayer');
+    c2.style.left = x+"px";
+    c2.style.top = y+"px";
+    var ctx2 = c2.getContext('2d');
+    //ctx2.clearRect(0, 0, c2.width, c2.height);
+    ctx2.fillStyle = "yellow";
+    ctx2.fillRect(0, 0, c2.width, c2.height);
+    ctx2.fillStyle = "black";
+    ctx2.fillText(yPixelToYear(y,100), 0, 15);
+});
 
 
 // time span
