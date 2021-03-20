@@ -3,6 +3,7 @@
    [
     {
      "name" : "John Dalton",
+	 "initials" : "JD",
      "born" : 1766,
      "died" : 1844,
      "fields" : 
@@ -17,6 +18,7 @@
     },
     {
      "name" : "Humphry Davy",
+	 "initials" : "HD",
      "born" : 1778,
      "died" : 1829,
      "fields" : 
@@ -108,6 +110,7 @@
     },
     {
      "name" : "George Stokes",
+	 "initials" : "GS",
      "born" : 1819,
      "died" : 1903,
      "fields" :
@@ -116,6 +119,34 @@
                  "field" : "light and energy"
                  }
                 ]
+    },
+	{
+     "name" : "Hans Christian Ørsted",
+	 "initials" : "HØ",
+     "born" : 1777,
+     "died" : 1851,
+     "fields" :
+                [
+                 {
+                 "field" : "electricity and magnetism"
+                 },
+				 {
+                 "field" : "elements"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Isolation of Aluminium",
+	   "year" : "1825",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Magnetic affect of electric current",
+	   "year" : "1820",
+	   "text" : ""
+	   }
+	   ]
     }
    ],
    "events" :
