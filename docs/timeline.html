@@ -148,6 +148,21 @@ function doData(data) {
     //ctx.arc(50, yearToYPixel( 1820 - startYear, endYear - startYear), 10, Math.PI/2, 5 * Math.PI/2, false);
     //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
     ctx.stroke();
+	if (data.people[i].events) {
+	  var j;
+	  for (j in data.people[i].events) {
+	    ctx.beginPath();
+        ctx.lineWidth = lifeWidth;
+        ctx.fillStyle = "blue";
+	    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].events[j].year - startYear, endYear - startYear), lifeWidth*3, 0 , 2 * Math.PI, false);
+	    ctx.fill();
+	  }
+	}
+	if (data.people[i].initials) {
+	  ctx.fillStyle = "black";
+      ctx.fillText(data.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(data.people[i].initials).width/2), yearToYPixel(data.people[i].born - startYear, endYear - startYear) + textHeight/2);
+	  ctx.fillText(data.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(data.people[i].initials).width/2), yearToYPixel(data.people[i].died - startYear, endYear - startYear) + textHeight/2);
+    }
 
     var j;
     for (j in data.people[i].fields) {
