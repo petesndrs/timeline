@@ -163,7 +163,7 @@
      "fields" :
                 [
                  {
-                 "field" : "astronomy"
+                 "field" : "solar spectroscopy"
                  },
 				 {
                  "field" : "elements"
@@ -218,6 +218,86 @@
 	   "event" : "Discovery Niobium(Nb:41)",
 	   "year" : "1801",
 	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Edward Frankland",
+	 "initials" : "EF",
+     "born" : 1825,
+     "died" : 1899,
+     "fields" :
+                [
+				 {
+                 "field" : "solar spectroscopy"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery Helium(He:2)",
+	   "year" : "1868",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Joseph Norman Lockyer",
+	 "initials" : "NL",
+     "born" : 1836,
+     "died" : 1920,
+     "fields" :
+                [
+				 {
+                 "field" : "solar spectroscopy"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery Helium(He:2)",
+	   "year" : "1868",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Pierre Jules César Janssen",
+	 "initials" : "JJ",
+     "born" : 1824,
+     "died" : 1907,
+     "fields" :
+                [
+				 {
+                 "field" : "solar spectroscopy"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery Helium(He:2)",
+	   "year" : "1868",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Dmitri Ivanovich Mendeleev",
+	 "initials" : "DM",
+     "born" : 1834,
+     "died" : 1907,
+     "fields" :
+                [
+				 {
+                 "field" : "atomic physics"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Invented periodic table of elements",
+	   "year" : "1863",
+	   "text" : "56 elements"
 	   }
 	   ]
     }
