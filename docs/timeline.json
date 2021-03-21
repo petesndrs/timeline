@@ -147,6 +147,72 @@
 	   "text" : ""
 	   }
 	   ]
+    },
+	{
+     "name" : "William Hyde Wollaston",
+	 "initials" : "WW",
+     "born" : 1766,
+     "died" : 1828,
+     "fields" :
+                [
+                 {
+                 "field" : "astronomy"
+                 },
+				 {
+                 "field" : "elements"
+                 },
+				 {
+				 "field" : "atomic physics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Spectroscopy of sunlight, dark gaps",
+	   "year" : "1802",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Static and battery electricity same",
+	   "year" : "1801",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Discovery of Palladium(Pd:46)",
+	   "year" : "1802",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Discovery of Rhodium(Rh:45)",
+	   "year" : "1804",
+	   "text" : ""
+	   },
+	    {
+	   "event" : "Confusion of Niobium(Nb:41) & Tantalum(Ta:73)",
+	   "year" : "1802",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Charles Hatchett",
+	 "initials" : "CH",
+     "born" : 1765,
+     "died" : 1847,
+     "fields" :
+                [
+				 {
+                 "field" : "elements"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery Niobium(Nb:41)",
+	   "year" : "1801",
+	   "text" : ""
+	   }
+	   ]
     }
    ],
    "events" :
