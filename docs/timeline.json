@@ -30,6 +30,7 @@
     },
     {
      "name" : "Michael Faraday",
+	 "initials" : "MF",
      "born" : 1791,
      "died" : 1867,
      "fields" : 
@@ -41,6 +42,7 @@
     },
     {
      "name" : "George Airy",
+	 "initials" : "GA",
      "born" : 1801,
      "died" : 1892,
      "fields" :
@@ -52,6 +54,7 @@
     },
     {
      "name" : "George Boole",
+	 "initials" : "GB",
      "born" : 1815,
      "died" : 1864,
      "fields" :
@@ -63,6 +66,7 @@
     },
     {
      "name" : "Arthur Cayley",
+	 "initials" : "AC",
      "born" : 1821,
      "died" : 1895,
      "fields" :
@@ -74,6 +78,7 @@
     },
     {
      "name" : "Edward Frankland",
+	 "initials" : "EF",
      "born" : 1825,
      "died" : 1899,
      "fields" :
@@ -85,6 +90,7 @@
     },
     {
      "name" : "James Joule",
+	 "initials" : "JJ",
      "born" : 1818,
      "died" : 1889,
      "fields" :
@@ -96,6 +102,7 @@
     },
     {
      "name" : "Lyon Playfair",
+	 "initials" : "LP",
      "born" : 1819,
      "died" : 1898,
      "fields" :
