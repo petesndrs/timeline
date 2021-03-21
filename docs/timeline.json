@@ -77,16 +77,24 @@
                 ]
     },
     {
-     "name" : "Edward Frankland",
-	 "initials" : "EF",
-     "born" : 1825,
-     "died" : 1899,
+     "name" : "John Henry Poynting",
+	 "initials" : "JP",
+     "born" : 1852,
+     "died" : 1914,
      "fields" :
                 [
                  {
-                 "field" : "chemistry"
+                 "field" : "electricity and magnetism"
                  }
-                ]
+                ],
+	  "events" :
+	   [
+	   {
+	   "event" : "Poynting vector formulated",
+	   "year" : "1884",
+	   "text" : ""
+	   }
+       ]
     },
     {
      "name" : "James Joule",
