@@ -308,6 +308,126 @@
 	   "text" : "56 elements"
 	   }
 	   ]
+    },
+	{
+     "name" : "Jöns Jacob Berzelius",
+	 "initials" : "JB",
+     "born" : 1779,
+     "died" : 1848,
+     "fields" :
+                [
+				 {
+                 "field" : "atomic physics"
+                 },
+				 {
+				 "field" : "elements"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Confirmed Law of definite proportions",
+	   "year" : "1812",
+	   "text" : "From Joseph Proust's paper of 1794/1797?"
+	   }
+	   ]
+    },
+	{
+     "name" : "Armedeo Avogadro",
+	 "initials" : "AA",
+     "born" : 1776,
+     "died" : 1856,
+     "fields" :
+                [
+				 {
+                 "field" : "gases"
+                 },
+				 {
+				 "fields" : "atomic physics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Avogadro's law",
+	   "year" : "1812",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Benoît Paul Émile Clapeyron",
+	 "initials" : "BC",
+     "born" : 1799,
+     "died" : 1864,
+     "fields" :
+                [
+				 {
+                 "field" : "gases"
+                 },
+				 {
+				 "fields" : "thermodynamics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "State second law of thermodynamics",
+	   "year" : "1843",
+	   "text" : "Stated Carnot's Principle"
+	   }
+	   ]
+    },
+	{
+     "name" : "Nicolas Léonard Sadi Carnot",
+	 "initials" : "NC",
+     "born" : 1796,
+     "died" : 1824,
+     "fields" :
+                [
+				 {
+                 "field" : "gases"
+                 },
+				 {
+				 "fields" : "thermodynamics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Carnot Cycle",
+	   "year" : "1824",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Rudolf Julius Emanuel Clausius",
+	 "initials" : "RC",
+     "born" : 1822,
+     "died" : 1888,
+     "fields" :
+                [
+				 {
+                 "field" : "gases"
+                 },
+				 {
+				 "fields" : "thermodynamics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Second law of thermodynamics",
+	   "year" : "1854",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Deduction of entropy",
+	   "year" : "1865",
+	   "text" : ""
+	   }
+	   ]
     }
    ],
    "events" :
