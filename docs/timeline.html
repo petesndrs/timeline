@@ -6,8 +6,8 @@
 
 <strong>Select topic</strong><br>
 
-<select name="cars" id="select" onChange="handledropdown(this)">
-  <option value="all">All</option>
+<select id="select" onChange="handledropdown(this)">
+  <option value="All">All</option>
 </select><br>
 
 <strong>Clickable timeline</strong><br>
@@ -44,15 +44,25 @@ canvas.addEventListener('click', function(event) {
     c2.style.top = y+"px";
     var ctx2 = c2.getContext('2d');
     //ctx2.clearRect(0, 0, c2.width, c2.height);
-    ctx2.fillStyle = "yellow";
+    if (x < timelineXMargin + tickLength + tickYearGap + yearWidth) {
+      ctx2.fillStyle = "yellow";
+    }
+    else
+    {
+      ctx2.fillStyle = "orange";
+    }
     ctx2.fillRect(0, 0, c2.width, c2.height);
     ctx2.fillStyle = "black";
     ctx2.fillText(yPixelToYear(y,100), 0, 15);
 });
 
-function handledropdown(e) {
+function handledropdown(sel) {
   console.log("changed");
-  console.log(globalData.people[0].name);
+  var x = (sel.value || sel.options[sel.selectedIndex].value);
+  console.log(x);
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  drawTimeline();
+  drawLives(x);
 }
 
 // time span
@@ -78,28 +88,32 @@ function yPixelToYear(y, numYears) {
   return Math.round((numYears * (y - timelineYMargin))/(canvasHeight-(2*timelineYMargin)));
 }
 
-ctx.beginPath();
-ctx.lineWidth = "3";
-ctx.strokeStyle = "red";
-ctx.moveTo(timelineXMargin, timelineYMargin);
-ctx.lineTo(timelineXMargin, canvasHeight - timelineYMargin);
-ctx.stroke();
-
-ctx.beginPath();
-ctx.linewidth = "3";
-ctx.strokeStyle = "red";
-var i;
 var yearWidth = 0;
-for (i = 0; i <= (endYear - startYear); i++) {
-  ctx.moveTo(timelineXMargin, yearToYPixel(i, endYear - startYear));
-  ctx.lineTo(timelineXMargin + tickLength, yearToYPixel(i, endYear - startYear));
-  ctx.fillText(startYear+i, timelineXMargin + tickLength + tickYearGap, yearToYPixel(i, endYear - startYear) + (textHeight/2) );
-  if (ctx.measureText(startYear+i).width > yearWidth) {
-    yearWidth = ctx.measureText(startYear+i).width;
-  }
-}
-ctx.stroke();
 
+function drawTimeline() {
+  ctx.beginPath();
+  ctx.lineWidth = "3";
+  ctx.strokeStyle = "red";
+  ctx.moveTo(timelineXMargin, timelineYMargin);
+  ctx.lineTo(timelineXMargin, canvasHeight - timelineYMargin);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.linewidth = "3";
+  ctx.strokeStyle = "red";
+  var i;
+  for (i = 0; i <= (endYear - startYear); i++) {
+    ctx.moveTo(timelineXMargin, yearToYPixel(i, endYear - startYear));
+    ctx.lineTo(timelineXMargin + tickLength, yearToYPixel(i, endYear - startYear));
+    ctx.fillText(startYear+i, timelineXMargin + tickLength + tickYearGap, yearToYPixel(i, endYear - startYear) + (textHeight/2) );
+    if (ctx.measureText(startYear+i).width > yearWidth) {
+      yearWidth = ctx.measureText(startYear+i).width;
+    }
+  }
+  ctx.stroke();
+}
+
+drawTimeline();
 console.log("Year Width = "+yearWidth);
 
 var url = "";
@@ -130,40 +144,64 @@ function fetchData() {
 
 var globalData;
 
+function drawLives(selectField) {
+  var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+  var i;
+  for (i in globalData.people) {
+    var foundField = false;
+	if (selectField == "All"){
+	  foundField = true;
+	}
+	else
+	{
+	  var j;
+      for (j in globalData.people[i].fields) {
+	    if (globalData.people[i].fields[j].field == selectField) {
+	      foundField = true;
+        }
+	  }
+	}
+	if (foundField) {
+      console.log("> " + globalData.people[i].name + " " + globalData.people[i].born + " " + globalData.people[i].died);
+      ctx.beginPath();
+      ctx.lineWidth = lifeWidth;
+      ctx.strokeStyle = "blue";
+      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear), lifeEndRadius, Math.PI/2, 5 * Math.PI/2, false);
+      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear), lifeEndRadius, 3 * Math.PI/2, 7 * Math.PI/2, false);
+      //ctx.arc(50, yearToYPixel( 1820 - startYear, endYear - startYear), 10, Math.PI/2, 5 * Math.PI/2, false);
+      //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
+      ctx.stroke();
+	  if (globalData.people[i].events) {
+	    var j;
+	    for (j in globalData.people[i].events) {
+	      ctx.beginPath();
+          ctx.lineWidth = lifeWidth;
+          ctx.fillStyle = "blue";
+	      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].events[j].year - startYear, endYear - startYear), lifeWidth*3, 0 , 2 * Math.PI, false);
+	      ctx.fill();
+	    }
+	  }
+	  if (globalData.people[i].initials) {
+	    ctx.fillStyle = "black";
+        ctx.fillText(globalData.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear) + textHeight/2);
+	    ctx.fillText(globalData.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear) + textHeight/2);
+      }
+    }
+  }
+}
+
+
 function doData(data) {
   var select = document.getElementById('select');
-  var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
 
   globalData = data;
 
   const mySet1 = new Set();
+
+  drawLives("All");
+
   var i;
   for (i in data.people) {
-    console.log("> " + data.people[i].name + " " + data.people[i].born + " " + data.people[i].died);
-    ctx.beginPath();
-    ctx.lineWidth = lifeWidth;
-    ctx.strokeStyle = "blue";
-    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].born - startYear, endYear - startYear), lifeEndRadius, Math.PI/2, 5 * Math.PI/2, false);
-    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].died - startYear, endYear - startYear), lifeEndRadius, 3 * Math.PI/2, 7 * Math.PI/2, false);
-    //ctx.arc(50, yearToYPixel( 1820 - startYear, endYear - startYear), 10, Math.PI/2, 5 * Math.PI/2, false);
-    //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
-    ctx.stroke();
-	if (data.people[i].events) {
-	  var j;
-	  for (j in data.people[i].events) {
-	    ctx.beginPath();
-        ctx.lineWidth = lifeWidth;
-        ctx.fillStyle = "blue";
-	    ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(data.people[i].events[j].year - startYear, endYear - startYear), lifeWidth*3, 0 , 2 * Math.PI, false);
-	    ctx.fill();
-	  }
-	}
-	if (data.people[i].initials) {
-	  ctx.fillStyle = "black";
-      ctx.fillText(data.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(data.people[i].initials).width/2), yearToYPixel(data.people[i].born - startYear, endYear - startYear) + textHeight/2);
-	  ctx.fillText(data.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(data.people[i].initials).width/2), yearToYPixel(data.people[i].died - startYear, endYear - startYear) + textHeight/2);
-    }
-
     var j;
     for (j in data.people[i].fields) {
        console.log("= " + data.people[i].fields[j].field);
@@ -174,14 +212,12 @@ function doData(data) {
 
   console.log(mySet1);
 
-  var index = 1;
   mySet1.forEach(function(value,key,set) {
     console.log(value);
     var opt = document.createElement("option");
-    opt.value= index;
+    opt.value= value;
     opt.innerHTML = value;
     select.appendChild(opt);
-    index++;
   });
 
   console.log("Data Done");
