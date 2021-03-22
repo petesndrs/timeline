@@ -38,7 +38,15 @@
 		 {
 		 "field" : "electricity and magnetism"
 		 }
-		]
+		],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery of inductance",
+	   "year" : "1831",
+	   "text" : ""
+	   }
+	   ]
     },
     {
      "name" : "George Airy",
@@ -425,6 +433,91 @@
 	   {
 	   "event" : "Deduction of entropy",
 	   "year" : "1865",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Heinrich Daniel Ruhmkorff",
+	 "initials" : "HR",
+     "born" : 1803,
+     "died" : 1877,
+     "fields" :
+                [
+				 {
+                 "field" : "electrity and magnetism"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Patented the induction coil",
+	   "year" : "1851",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Nicholas Joseph Callan",
+	 "initials" : "NC",
+     "born" : 1799,
+     "died" : 1864,
+     "fields" :
+                [
+				 {
+                 "field" : "electrity and magnetism"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Invented the induction coil",
+	   "year" : "1836",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Samuel Finley Breese Morse",
+	 "initials" : "SM",
+     "born" : 1791,
+     "died" : 1872,
+     "fields" :
+                [
+				 {
+                 "field" : "communication"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Demonstrated telegraph with repeater relays",
+	   "year" : "1838",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Joseph Henry",
+	 "initials" : "JH",
+     "born" : 1797,
+     "died" : 1878,
+     "fields" :
+                [
+				 {
+                 "field" : "electricity and magnetism"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery of inductance",
+	   "year" : "1831",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Electromotive force demonstrated",
+	   "year" : "1831",
 	   "text" : ""
 	   }
 	   ]
