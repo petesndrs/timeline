@@ -414,7 +414,7 @@
                  "field" : "gases"
                  },
 				 {
-				 "fields" : "atomic physics"
+				 "field" : "atomic physics"
 				 }
                 ],
 	 "events" :
@@ -437,7 +437,7 @@
                  "field" : "gases"
                  },
 				 {
-				 "fields" : "thermodynamics"
+				 "field" : "thermodynamics"
 				 }
                 ],
 	 "events" :
@@ -460,7 +460,7 @@
                  "field" : "gases"
                  },
 				 {
-				 "fields" : "thermodynamics"
+				 "field" : "thermodynamics"
 				 }
                 ],
 	 "events" :
@@ -483,7 +483,7 @@
                  "field" : "gases"
                  },
 				 {
-				 "fields" : "thermodynamics"
+				 "field" : "thermodynamics"
 				 }
                 ],
 	 "events" :
@@ -511,10 +511,10 @@
                  "field" : "gases"
                  },
 				 {
-				 "fields" : "chemistry"
+				 "field" : "chemistry"
 				 },
 				 {
-				 "fields" : "thermodynamics"
+				 "field" : "thermodynamics"
 				 }
                 ],
 	 "events" :
