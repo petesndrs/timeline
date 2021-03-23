@@ -26,6 +26,34 @@
 		 {
 		 "field" : "elements"
 		 }
+		],
+	  "events" :
+	    [
+	    {
+	    "event" : "Discovery of Potassium (K:19)",
+	    "year" : "1807",
+	    "text" : ""
+	    },
+		{
+	    "event" : "Discovery of Sodium (Na:11)",
+	    "year" : "1807",
+	    "text" : ""
+	    },
+		{
+	    "event" : "Discovery of Calcium (K:20)",
+	    "year" : "1808",
+	    "text" : ""
+	    },
+		{
+	    "event" : "Recognised Boron (B:5) as an element",
+	    "year" : "1808",
+	    "text" : ""
+	    },
+		{
+	    "event" : "Recognised Chlorine (Cl:17) as an element",
+	    "year" : "1810",
+	    "text" : ""
+	    }
 		]
     },
     {
@@ -210,7 +238,7 @@
 	   "year" : "1804",
 	   "text" : ""
 	   },
-	    {
+	   {
 	   "event" : "Confusion of Niobium(Nb:41) & Tantalum(Ta:73)",
 	   "year" : "1802",
 	   "text" : ""
@@ -337,6 +365,41 @@
 	   "event" : "Confirmed Law of definite proportions",
 	   "year" : "1812",
 	   "text" : "From Joseph Proust's paper of 1794/1797?"
+	   },
+	   {
+	   "event" : "Chemical notation",
+	   "year" : "1813",
+	   "text" : "Element symbol and number"
+	   },
+	   {
+	   "event" : "Discovery of Cerium (Ce:58)",
+	   "year" : "1803",
+	   "text" : "Klaproth, Berzelius and Hisinger"
+	   },
+	   {
+	   "event" : "Discovery of Selenium (Se:34)",
+	   "year" : "1817",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Martin Heinrich Klaproth",
+	 "initials" : "MK",
+     "born" : 1743,
+     "died" : 1817,
+     "fields" :
+                [
+				 {
+				 "field" : "elements"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery of Cerium (Ce 58)",
+	   "year" : "1803",
+	   "text" : "Klaproth, Berzelius and Hisinger"
 	   }
 	   ]
     },
@@ -433,6 +496,70 @@
 	   {
 	   "event" : "Deduction of entropy",
 	   "year" : "1865",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Joseph Louis Gay-Lussac",
+	 "initials" : "GL",
+     "born" : 1778,
+     "died" : 1850,
+     "fields" :
+                [
+				 {
+                 "field" : "gases"
+                 },
+				 {
+				 "fields" : "chemistry"
+				 },
+				 {
+				 "fields" : "thermodynamics"
+				 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Gay-Lussac's Law",
+	   "year" : "1802",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Discovered water molecule is H2O",
+	   "year" : "1805",
+	   "text" : "With French polymath Alexander von Humboldt"
+	   },
+	   {
+	   "event" : "Discovery of Boron (B:5)",
+	   "year" : "1808",
+	   "text" : "Humphry Davy, Joseph Louis Gay-Lussac, Louis Jacques Thénard"
+	   },
+	   {
+	   "event" : "Recognize Iodine (I:53) as element",
+	   "year" : "1811",
+	   "text" : ""
+	   }
+	   ]
+    },
+	{
+     "name" : "Bernard Courtois",
+	 "initials" : "BC",
+     "born" : 1777,
+     "died" : 1838,
+     "fields" :
+                [
+				 {
+                 "field" : "chemist"
+                 },
+				 {
+                 "field" : "elements"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovery of Iodine (I:53)",
+	   "year" : "1811",
 	   "text" : ""
 	   }
 	   ]
