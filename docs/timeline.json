@@ -445,7 +445,7 @@
      "fields" :
                 [
 				 {
-                 "field" : "electrity and magnetism"
+                 "field" : "electricity and magnetism"
                  }
                 ],
 	 "events" :
@@ -465,7 +465,7 @@
      "fields" :
                 [
 				 {
-                 "field" : "electrity and magnetism"
+                 "field" : "electricity and magnetism"
                  }
                 ],
 	 "events" :
@@ -494,6 +494,11 @@
 	   "event" : "Demonstrated telegraph with repeater relays",
 	   "year" : "1838",
 	   "text" : ""
+	   },
+	   {
+	   "event" : "Morse code was adopted internationally",
+	   "year" : "1865",
+	   "text" : ""
 	   }
 	   ]
     },
@@ -516,7 +521,7 @@
 	   "text" : ""
 	   },
 	   {
-	   "event" : "Electromotive force demonstrated",
+	   "event" : "Invented rocking-beam motor",
 	   "year" : "1831",
 	   "text" : ""
 	   }
