@@ -14,7 +14,7 @@
 <div id="canvasdiv" style="position: relative;">
 <canvas id="myCanvas" width="2000" height="2000" style="position: absolute; left: 0px; top: 0px; z-index: 0; border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<canvas id="toplayer" width="20" height="30" style="position: absolute; left: 10px; top: 10px; z-index: 1; border:0px;"></canvas>
+<canvas id="toplayer" width="200" height="200" style="position: absolute; left: 10px; top: 10px; z-index: 1; border:0px;"></canvas>
 </div>
 
 
@@ -44,17 +44,26 @@ canvas.addEventListener('click', function(event) {
     c2.style.top = y+"px";
     var ctx2 = c2.getContext('2d');
     //ctx2.clearRect(0, 0, c2.width, c2.height);
+
+    console.log("Lifeline, Year", xPixelToLife(x), yPixelToYear(y,100));
     if (x < timelineXMargin + tickLength + tickYearGap + yearWidth) {
       ctx2.fillStyle = "yellow";
+      ctx2.fillText(yPixelToYear, 2, 10);
     }
     else
     {
       ctx2.fillStyle = "orange";
+      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name, 2, 10);
     }
     ctx2.fillRect(0, 0, c2.width, c2.height);
     ctx2.fillStyle = "black";
-    ctx2.fillText(yPixelToYear(y,100), 0, 15);
-    ctx2.fillText(xPixelToLife(x), 0, 25);
+    if (x < timelineXMargin + tickLength + tickYearGap + yearWidth) {
+      ctx2.fillText(yPixelToYear(y, 100), 2, 10);
+    }
+    else
+    {
+      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name, 2, 10);
+    }
 });
 
 function handledropdown(sel) {
@@ -154,8 +163,11 @@ function xPixelToLife(x) {
   return Math.round((x - timelineXMargin - tickLength - tickYearGap - yearWidth - lifeEndRadius - lifeWidth)/lifeSeparation);
 }
 
+let lifeToPersonMap = new Map();
+
 function drawLives(selectField) {
   //var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+  lifeToPersonMap.clear();
   var numShown = 0;
   var i;
   for (i in globalData.people) {
@@ -173,6 +185,7 @@ function drawLives(selectField) {
       }
     }
     if (foundField) {
+      lifeToPersonMap.set(numShown, i);
       console.log("> " + globalData.people[i].name + " " + globalData.people[i].born + " " + globalData.people[i].died);
       ctx.beginPath();
       ctx.lineWidth = lifeWidth;
@@ -200,6 +213,7 @@ function drawLives(selectField) {
       numShown++;
     }
   }
+  console.log("Map size " + lifeToPersonMap.size);
 }
 
 
