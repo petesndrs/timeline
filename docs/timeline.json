@@ -6,10 +6,10 @@
 	 "initials" : "JD",
      "born" : 1766,
      "died" : 1844,
-     "fields" : 
+     "fields" :
 		[
 		 {
-		 "field" : "gases" 
+		 "field" : "gases"
 		 },
 		 {
 		 "field" : "atomic physics"
@@ -21,7 +21,7 @@
 	 "initials" : "HD",
      "born" : 1778,
      "died" : 1829,
-     "fields" : 
+     "fields" :
 		[
 		 {
 		 "field" : "elements"
@@ -61,7 +61,7 @@
 	 "initials" : "MF",
      "born" : 1791,
      "died" : 1867,
-     "fields" : 
+     "fields" :
 		[
 		 {
 		 "field" : "electricity and magnetism"
@@ -653,7 +653,39 @@
 	   "text" : ""
 	   }
 	   ]
-    }
+    },
+	{
+     "name" : "Jean Baptiste André Dumas",
+     "initials" : "JD",
+     "born" : 1800,
+     "died" : 1884,
+     "fields" :
+                [
+                {
+                 "field" : "atomic physics"
+                 }
+                ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Determination of atomic masses",
+	   "year" : "1826",
+	   "text" : "Developed technique to determination of atomic & molecular masses from vapour pressure"
+	   }
+	   ]
+   },
+   {
+    "name" : "Ludwig Eduard Boltzmann",
+    "initials" : "LB",
+    "born" : 1844,
+    "died" : 1906,
+    "fields" :
+               [
+               {
+                "field" : "thermodynamics"
+                }
+               ]
+   }
    ],
    "events" :
    [
