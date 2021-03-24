@@ -26,7 +26,7 @@ var canvas = document.getElementById('myCanvas');
 
 var canvasHeight = canvas.height;
 var canvasWidth = canvas.width;
-console.log("Canvas: " + canvasHeight + "x" + canvasHeight); 
+console.log("Canvas: " + canvasHeight + "x" + canvasHeight);
 
 var ctx = canvas.getContext('2d');
 
@@ -54,6 +54,7 @@ canvas.addEventListener('click', function(event) {
     ctx2.fillRect(0, 0, c2.width, c2.height);
     ctx2.fillStyle = "black";
     ctx2.fillText(yPixelToYear(y,100), 0, 15);
+    ctx2.fillText(xPixelToLife(x), 0, 25);
 });
 
 function handledropdown(sel) {
@@ -144,48 +145,59 @@ function fetchData() {
 
 var globalData;
 
-function drawLives(selectField) {
+function lifeToXPixel(i){
   var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+  return xStart + (i * lifeSeparation);
+}
+
+function xPixelToLife(x) {
+  return Math.round((x - timelineXMargin - tickLength - tickYearGap - yearWidth - lifeEndRadius - lifeWidth)/lifeSeparation);
+}
+
+function drawLives(selectField) {
+  //var xStart = timelineXMargin + tickLength + tickYearGap + yearWidth + lifeEndRadius + lifeWidth;
+  var numShown = 0;
   var i;
   for (i in globalData.people) {
     var foundField = false;
-	if (selectField == "All"){
-	  foundField = true;
-	}
-	else
-	{
-	  var j;
+    if (selectField == "All"){
+      foundField = true;
+    }
+    else
+    {
+      var j;
       for (j in globalData.people[i].fields) {
-	    if (globalData.people[i].fields[j].field == selectField) {
-	      foundField = true;
+        if (globalData.people[i].fields[j].field == selectField) {
+          foundField = true;
         }
-	  }
-	}
-	if (foundField) {
+      }
+    }
+    if (foundField) {
       console.log("> " + globalData.people[i].name + " " + globalData.people[i].born + " " + globalData.people[i].died);
       ctx.beginPath();
       ctx.lineWidth = lifeWidth;
       ctx.strokeStyle = "blue";
-      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear), lifeEndRadius, Math.PI/2, 5 * Math.PI/2, false);
-      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear), lifeEndRadius, 3 * Math.PI/2, 7 * Math.PI/2, false);
+      ctx.arc(lifeToXPixel(numShown), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear), lifeEndRadius, Math.PI/2, 5 * Math.PI/2, false);
+      ctx.arc(lifeToXPixel(numShown), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear), lifeEndRadius, 3 * Math.PI/2, 7 * Math.PI/2, false);
       //ctx.arc(50, yearToYPixel( 1820 - startYear, endYear - startYear), 10, Math.PI/2, 5 * Math.PI/2, false);
       //ctx.arc(50, yearToYPixel( 1830 - startYear, endYear - startYear), 10, 3 * Math.PI/2, 7 * Math.PI/2, false);
       ctx.stroke();
-	  if (globalData.people[i].events) {
-	    var j;
-	    for (j in globalData.people[i].events) {
-	      ctx.beginPath();
+      if (globalData.people[i].events) {
+        var j;
+        for (j in globalData.people[i].events) {
+          ctx.beginPath();
           ctx.lineWidth = lifeWidth;
           ctx.fillStyle = "blue";
-	      ctx.arc(xStart + (i * lifeSeparation), yearToYPixel(globalData.people[i].events[j].year - startYear, endYear - startYear), lifeWidth*3, 0 , 2 * Math.PI, false);
-	      ctx.fill();
-	    }
-	  }
-	  if (globalData.people[i].initials) {
-	    ctx.fillStyle = "black";
-        ctx.fillText(globalData.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear) + textHeight/2);
-	    ctx.fillText(globalData.people[i].initials, xStart + (i * lifeSeparation) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear) + textHeight/2);
+          ctx.arc(lifeToXPixel(numShown), yearToYPixel(globalData.people[i].events[j].year - startYear, endYear - startYear), lifeWidth*3, 0 , 2 * Math.PI, false);
+          ctx.fill();
+        }
       }
+      if (globalData.people[i].initials) {
+        ctx.fillStyle = "black";
+        ctx.fillText(globalData.people[i].initials, lifeToXPixel(numShown) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].born - startYear, endYear - startYear) + textHeight/2);
+        ctx.fillText(globalData.people[i].initials, lifeToXPixel(numShown) - (ctx.measureText(globalData.people[i].initials).width/2), yearToYPixel(globalData.people[i].died - startYear, endYear - startYear) + textHeight/2);
+      }
+      numShown++;
     }
   }
 }
