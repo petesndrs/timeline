@@ -48,21 +48,26 @@ canvas.addEventListener('click', function(event) {
     console.log("Lifeline, Year", xPixelToLife(x), yPixelToYear(y,100));
     if (x < timelineXMargin + tickLength + tickYearGap + yearWidth) {
       ctx2.fillStyle = "yellow";
-      ctx2.fillText(yPixelToYear, 2, 10);
     }
     else
     {
       ctx2.fillStyle = "orange";
-      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name, 2, 10);
     }
     ctx2.fillRect(0, 0, c2.width, c2.height);
+
     ctx2.fillStyle = "black";
     if (x < timelineXMargin + tickLength + tickYearGap + yearWidth) {
       ctx2.fillText(yPixelToYear(y, 100), 2, 10);
     }
     else
     {
-      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name, 2, 10);
+      var oldfont = ctx2.font;
+      ctx2.font = "bold " + oldfont;
+      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name + " (" +
+      globalData.people[lifeToPersonMap.get(xPixelToLife(x))].born + "-" +
+      globalData.people[lifeToPersonMap.get(xPixelToLife(x))].died + ")", 2, 10);
+      ctx2.font = oldfont;
+      ctx2.fillText(globalData.people[lifeToPersonMap.get(xPixelToLife(x))].name, 2, 20);
     }
 });
 
