@@ -685,7 +685,174 @@
                 "field" : "thermodynamics"
                 }
                ]
-   }
+   },
+   {
+    "name" : "Joseph Ritter von Fraunhofer",
+    "initials" : "JF",
+    "born" : 1787,
+    "died" : 1826,
+    "fields" :
+               [
+               {
+                "field" : "solar spectroscopy"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Discovered solar absorption lines",
+	   "year" : "1814",
+	   "text" : "Fraunhofer used his spectroscope and identified many absorption lines. Building on those found by Wollaston."
+	   }
+	   ]
+   },
+   {
+    "name" : "Gustav Robert Kirchhoff",
+    "initials" : "GK",
+    "born" : 1824,
+    "died" : 1887,
+    "fields" :
+               [
+               {
+                "field" : "solar spectroscopy"
+                },
+				{
+                "field" : "electricity and magnetism"
+                },
+				{
+                "field" : "thermodynamics"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Kirchoff's circuit laws",
+	   "year" : "1845",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Speed of electric current",
+	   "year" : "1857",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Law of thermal radiation",
+	   "year" : "1859",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Discovered solar Sodium",
+	   "year" : "1859",
+	   "text" : "With Robert Bunsen"
+	   },
+	   {
+	   "event" : "Three rules of spectroscopy",
+	   "year" : "1860",
+	   "text" : "Following David Alters spectroscopy of gases, Kirchhoff & Bunsens experiments led to the three rules of spectroscopy."
+	   },
+	   {
+	   "event" : "Discovery of Caesium (Cs:55)",
+	   "year" : "1861",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Discovery of Rubidium (Rb:37)",
+	   "year" : "1861",
+	   "text" : ""
+	   }
+	   ]
+   },
+   {
+    "name" : "David Alter",
+    "initials" : "DA",
+    "born" : 1807,
+    "died" : 1881,
+    "fields" :
+               [
+				{
+                "field" : "atomic physics"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Bronze composed of copper and zinc",
+	   "year" : "1854",
+	   "text" : "Using spectroscopy"
+	   },
+	   {
+	   "event" : "Spectral analysis of gases",
+	   "year" : "1855",
+	   "text" : ""
+	   }
+	   ]
+	},
+   {
+    "name" : "Anders Jonas Ångström",
+    "initials" : "AA",
+    "born" : 1814,
+    "died" : 1874,
+    "fields" :
+               [
+				{
+                "field" : "atomic physics"
+                },
+				{
+                "field" : "solar spectroscopy"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Spectral lines of sparks are superposition",
+	   "year" : "1853",
+	   "text" : "Spectral lines of sparks are superposition of the electrode metal and the gas."
+	   },
+	   {
+	   "event" : "Proposed absorption and emission lines are same.",
+	   "year" : "1853",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Showed sun contains hydrogen",
+	   "year" : "1861",
+	   "text" : ""
+	   }
+	   ]
+	},
+   {
+    "name" : "William Robert Grove",
+    "initials" : "WG",
+    "born" : 1811,
+    "died" : 1896,
+    "fields" :
+               [
+				{
+                "field" : "atomic physics"
+                },
+				{
+                "field" : "molecular physics"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Invention of Grove cell",
+	   "year" : "1839",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Incandescent electric light",
+	   "year" : "1840",
+	   "text" : ""
+	   },
+	   {
+	   "event" : "Thermal dissociation of molecules",
+	   "year" : "1842",
+	   "text" : ""
+	   }
+	   ]
+	}
    ],
    "events" :
    [
