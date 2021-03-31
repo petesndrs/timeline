@@ -852,6 +852,66 @@
 	   "text" : ""
 	   }
 	   ]
+	},
+   {
+    "name" : "Johann Jakob Balmer",
+    "initials" : "JB",
+    "born" : 1825,
+    "died" : 1898,
+    "fields" :
+               [
+				{
+                "field" : "atomic physics"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Hydrogen spectroscopy visible lines",
+	   "year" : "1885",
+	   "text" : ""
+	   }
+	   ]
+	},
+    {
+    "name" : "Johannes Robert Rydberg",
+    "initials" : "JR",
+    "born" : 1854,
+    "died" : 1919,
+    "fields" :
+               [
+				{
+                "field" : "atomic physics"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Rhydberg formula for spectral lines",
+	   "year" : "1888",
+	   "text" : ""
+	   }
+	   ]
+	},
+    {
+    "name" : "William Stanley Jr",
+    "initials" : "WS",
+    "born" : 1858,
+    "died" : 1916,
+    "fields" :
+               [
+				{
+                "field" : "electricity and magnetism"
+                }
+               ],
+	 "events" :
+	   [
+	   {
+	   "event" : "Patented induction coil (AC transformer)",
+	   "year" : "1886",
+	   "text" : "Patent US349611"
+	   }
+	   ]
 	}
    ],
    "events" :
